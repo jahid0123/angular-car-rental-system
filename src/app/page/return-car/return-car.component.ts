@@ -22,30 +22,42 @@ export class ReturnCarComponent implements OnInit {
   }
 
   returnCar(): void {
-
-    if (this.carId <= 0) {
-      alert('Enter invalid Car ID!!');
-    } else {
-
-      let carToReturn = this.cars.find(car => car.carId === this.carId);
-
-      if (carToReturn) {
-        carToReturn.isAvailable = true;
-
-        // Update the cars array with the modified car
-        this.cars = this.cars.map(car => car.carId === this.carId ? carToReturn! : car);
-
-        // Update local storage
-        localStorage.setItem('car', JSON.stringify(this.cars));
-
-        // Refresh available cars list
-        this.cars = this.cars.filter(car => car.isAvailable === true);
-
-        alert(`Car ID ${this.carId} has been successfully returned and is now available.`);
-      } else {
-        alert(`Car with ID ${this.carId} not found.`);
-      }
+    if (!this.carId || this.carId <= 0) {
+        alert('Enter a valid Car ID!!');
+        return;
     }
-  }
+
+    // Find the car in the stored cars list
+    let carToReturn = this.cars.find(car => car.carId === this.carId);
+
+    if (!carToReturn) {
+        alert(`Car with ID ${this.carId} not found.`);
+        return;
+    }
+
+    if (carToReturn.isAvailable) {
+        alert(`Car ID ${this.carId} is already available.`);
+        return;
+    }
+
+    // Mark the car as available
+    carToReturn.isAvailable = true;
+
+    // Update the car list with the modified car
+    this.cars = this.cars.map(car => (car.carId === this.carId ? carToReturn : car));
+
+    // Remove the booking for this car
+    //this.bookings = this.bookings.filter(booking => booking.car.carId !== this.carId);
+
+    // Update local storage
+    localStorage.setItem('car', JSON.stringify(this.cars));
+    //localStorage.setItem('booking', JSON.stringify(this.bookings));
+
+    // Refresh available cars list
+    this.cars = this.cars.filter(car => car.isAvailable === true);
+
+    alert(`Car ID ${this.carId} has been successfully returned and is now available.`);
+}
+
 }
 

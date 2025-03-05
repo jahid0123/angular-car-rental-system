@@ -47,14 +47,6 @@ export class BookingComponent implements OnInit {
     if (!this.selectedCar || !this.books.cusName || !this.books.cusNID || !this.books.cusContact || !this.books.days) {
       alert("Please fill all fields before booking.");
       return;
-    }else{
-      if (this.isUpdate && this.carid !== null) {
-        // Update the existing car
-        this.cars[this.carid] = { ...this.car };
-      } else {
-        // Add new car
-        this.cars.push(this.car);
-      }
     }
 
     
