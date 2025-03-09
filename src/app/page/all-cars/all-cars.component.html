@@ -1,0 +1,19 @@
+<h1 class="text-center mt-5 fw-bold text-success">🚗 All Available Cars</h1>
+<div class="card-container">
+  <mat-card class="example-card mt-5 shadow-lg rounded-4" *ngFor="let car of aviableCars; let i = index">
+    <mat-card-header class="card-header">
+      <mat-card-title><h3 class="doctor-name">{{ car.carBrand }}</h3></mat-card-title>
+      <mat-card-subtitle><strong>Model:</strong> 🏥 {{ car.carModel }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <img mat-card-image src="222.png" alt="Car Image" class="doctor-image mt-1 rounded-4">
+
+    <mat-card-content class="card-content">
+      <p><strong>💲 Rent Price:</strong> {{ car.carBasePrice }}/day</p>
+    </mat-card-content>
+
+    <mat-card-actions class="action-container">
+      <button mat-raised-button color="primary" class="book-btn" (click)="bookCars(car)">📅 Book Car</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

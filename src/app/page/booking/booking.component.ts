@@ -55,6 +55,11 @@ export class BookingComponent implements OnInit {
     this.books.car = this.selectedCar;
     this.books.totalAmount = this.selectedCar.carBasePrice * this.books.days;
 
+     // Show confirmation dialog
+     if (confirm(`Confirm Booking? \nTotal Price: ${this.books.totalAmount}`)) {
+      alert("Car booked successfully!");
+    }
+
     // Push booking to array and save in localStorage
     this.bookings.push(this.books);
     localStorage.setItem('booking', JSON.stringify(this.bookings));
@@ -66,10 +71,7 @@ export class BookingComponent implements OnInit {
     this.cars = this.cars.map(car => (car.carId === this.selectedCar.carId ? this.selectedCar : car));
     localStorage.setItem('car', JSON.stringify(this.cars));
 
-    // Show confirmation dialog
-    if (confirm(`Confirm Booking? \nTotal Price: ${this.books.totalAmount}`)) {
-      alert("Car booked successfully!");
-    }
+   
 
     // Refresh available cars
     this.availableCars = this.cars.filter(car => car.isAvailable === true);
