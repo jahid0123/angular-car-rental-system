@@ -1,99 +1,41 @@
-/* Styling for the card container */
-.card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 20px;
+.custom-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background: linear-gradient(135deg, #f8f9fa, #ffffff);
+    padding: 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    margin: 15px;
   }
   
-  /* Styling for the mat-card */
-  .mat-card {
-    background-color: #f8f9fa;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  /* Hover effect for the card */
-  .mat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Styling the mat-card-header */
-  .card-header {
-    background-color: #abe4a9;
-    padding: 1rem;
-    border-bottom: 2px solid #64966f;
-    text-align: center;
-    border-radius: 5px;
-  }
-  
-  /* Doctor's name styling */
-  .doctor-name {
-    font-size: 1.5rem;
-    color: #343a40;
-    font-weight: bold;
-    text-align: left;
-  }
-  
-  /* Subtitle (Department) styling */
-  .mat-card-subtitle {
-    font-size: 1.1rem;
-    color: #6c757d;
-    margin-top: 0.5rem;
-  }
-  
-  /* Styling for the doctor image */
-  .doctor-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-  
-  /* Styling for the card content */
-  .card-content {
-    padding: 1rem;
-    font-size: 1.1rem;
-    color: #495057;
-    text-align: center;
-  }
-  
-  /* Styling for the action container */
-  .action-container {
-    text-align: center;
-    padding: 1rem;
-  }
-  
-  /* Button styling */
-  .book-btn {
-    padding: 0.8rem 2rem;
-    font-size: 1.1rem;
-    border-radius: 30px;
-    background-color: #28a745;
-    color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, background-color 0.2s;
-  }
-  
-  /* Hover effect for the button */
-  .book-btn:hover {
+  .custom-card:hover {
     transform: scale(1.05);
-    background-color: #218838;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
   
-  /* Responsive design for smaller screens */
-  @media (max-width: 768px) {
-    .card-container {
-      grid-template-columns: 1fr;
-      padding: 10px;
-    }
+  .car-image {
+    height: 180px;
+    object-fit: cover;
+  }
   
-    .book-btn {
-      width: 100%;
-      padding: 0.8rem;
-    }
+  .card-content {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  
+  .price-tag {
+    font-weight: bold;
+    color: #28a745;
+  }
+  
+  .book-btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+  }
+  
+  .book-btn:hover {
+    background: #ff9800 !important;
+    color: white;
   }
   

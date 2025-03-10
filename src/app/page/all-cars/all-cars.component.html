@@ -1,19 +1,29 @@
 <h1 class="text-center mt-5 fw-bold text-success">🚗 All Available Cars</h1>
-<div class="card-container">
-  <mat-card class="example-card mt-5 shadow-lg rounded-4" *ngFor="let car of aviableCars; let i = index">
-    <mat-card-header class="card-header">
-      <mat-card-title><h3 class="doctor-name">{{ car.carBrand }}</h3></mat-card-title>
-      <mat-card-subtitle><strong>Model:</strong> 🏥 {{ car.carModel }}</mat-card-subtitle>
-    </mat-card-header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let car of aviableCars; let i = index">
+      <mat-card class="custom-card shadow-lg rounded-4">
+        <mat-card-header class="card-header">
+          <mat-card-title>
+            <h3 class="car-name">🚘 {{ car.carBrand }}</h3>
+          </mat-card-title>
+          <mat-card-subtitle>
+            <span class="text-muted">🚀 Model: {{ car.carModel }}</span>
+          </mat-card-subtitle>
+        </mat-card-header>
 
-    <img mat-card-image src="222.png" alt="Car Image" class="doctor-image mt-1 rounded-4">
+        <img mat-card-image src="222.png" alt="Car Image" class="car-image rounded-3">
 
-    <mat-card-content class="card-content">
-      <p><strong>💲 Rent Price:</strong> {{ car.carBasePrice }}/day</p>
-    </mat-card-content>
+        <mat-card-content class="card-content">
+          <p class="price-tag">💰 <strong>Rent Price:</strong> <span class="text-primary">${{ car.carBasePrice }}/day</span></p>
+        </mat-card-content>
 
-    <mat-card-actions class="action-container">
-      <button mat-raised-button color="primary" class="book-btn" (click)="bookCars(car)">📅 Book Car</button>
-    </mat-card-actions>
-  </mat-card>
+        <mat-card-actions class="d-flex justify-content-center">
+          <button mat-raised-button color="accent" class="book-btn" (click)="bookCars(car)">
+            📅 Book Now
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
 </div>
